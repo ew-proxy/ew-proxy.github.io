@@ -4,7 +4,7 @@ const answers_no = {
         "Asmita, you sure?",
         "What if I asked you really nicely??",
         "What if I said there is coffee involved???",
-        "With chocoloate desserts?",
+        "With chocoloate dessert?",
         "How about if we go for a play too?",
         "Okayy maybe a musical then?",
         "But :*(",
@@ -57,7 +57,7 @@ answers_yes = {
     "Thailand": "เย่ คืนดีกันแล้วน้า"
 }
 
-let language = "english"; // Default language is English
+const language = "english"; // Default language is English
 const no_button = document.getElementById('no-button');
 const yes_button = document.getElementById('yes-button');
 let i = 1;
@@ -132,42 +132,6 @@ function refreshBanner() {
     let src = banner.src;
     banner.src = '';
     banner.src = src;
-}
-
-function changeLanguage() {
-    const selectElement = document.getElementById("language-select");
-    const selectedLanguage = selectElement.value;
-    language = selectedLanguage;
-
-    // Update question heading
-    const questionHeading = document.getElementById("question-heading");
-    if (language === "french") {
-        questionHeading.textContent = "Tu veux être mon valentin?";
-    } else if (language === "thai") {
-        questionHeading.textContent = "คืนดีกับเราได้อ่ะป่าว?";
-    } else {
-        questionHeading.textContent = "Will you be my valentine?";
-    }
-
-    // Reset yes button text
-    setButtonLabel(yes_button, answers_yes[language]);
-
-    // Reset button text to first in the new language
-    if (clicks === 0) {
-        setButtonLabel(no_button, answers_no[language][0]);
-    } else {
-        setButtonLabel(no_button, answers_no[language][clicks]);
-    }
-
-    // Update success message
-    const successMessage = document.getElementById("success-message");
-    if (language === "french") {
-        successMessage.textContent = "Yepppie, à bientôt :3";
-    } else if (language === "thai") {
-        successMessage.textContent = "ฮูเร่ คืนดีกันแล้วน้า :3";
-    } else {
-        successMessage.textContent = "Yepppie, see you sooonnn :3";
-    }
 }
 
 // Ensure labels exist and match the default language.

@@ -27,9 +27,11 @@ body {
     margin: 0 10px;
     color: white;
     background-color: red;
-    height: 60px !important;
+    min-height: 60px;
+    height: auto;
     width: auto;
     min-width: 130px;
+    max-width: 92vw;
     border: none;
     cursor: pointer;
     margin-top: 10px;
@@ -44,6 +46,8 @@ body {
     margin: 0;
     font-size: inherit;
     line-height: 1;
+    text-align: center;
+    white-space: normal;
 }
 
 #yes-button {
@@ -101,27 +105,6 @@ body {
     object-fit: contain;
 }
 
-.language-selector {
-    margin-top: 30px;
-    position: unset;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.language-selector label {
-    margin-right: 10px;
-}
-
-.language-selector select {
-    padding: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
 .creator {
     text-decoration: none;
     color: #333;
@@ -139,17 +122,6 @@ body {
 
 /* CSS For Mobile */
 @media (max-width: 768px) {
-    .language-selector {
-        position: unset;
-        margin-top: 30px;
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
     #question-heading {
         font-size: 34px;
     }
