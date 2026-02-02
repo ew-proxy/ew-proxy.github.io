@@ -65,13 +65,17 @@ let i = 1;
 let size = 50;
 let clicks = 0;
 
+const GIFS = {
+    start: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzYwMHE2anFmYzRrZG96NG9yeGQybmxobTEzdmd2MW50ODA2cmhzeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ITacRy2zH4vMQ/giphy.gif",
+    yes: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGw2ZnpzOTZxejNvbDV6aGsyenQxNnJmZW5iOW9iOG54eWt0Y3hpcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CcXDDURBoqJ1w6wR8E/giphy.gif",
+    no: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWI5ZThibHRveWhjYzlqM2gyMXhneGNkOHB0ZnVtNXk1c2JneXNxcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/N9uEo1QIWGINy/giphy.gif"
+};
+
 no_button.addEventListener('click', () => {
     // Change banner source
     let banner = document.getElementById('banner');
-    if (clicks === 0) {
-        banner.src = "public/images/no.gif";
-        refreshBanner();
-    }
+    banner.src = GIFS.no;
+    refreshBanner();
     clicks++;
     // increase button height and width gradually to 250px
     const sizes = [40, 50, 30, 35, 45]
@@ -98,7 +102,7 @@ no_button.addEventListener('click', () => {
 yes_button.addEventListener('click', () => {
     // change banner gif path
     let banner = document.getElementById('banner');
-    banner.src = "public/images/yes.gif";
+    banner.src = GIFS.yes;
     refreshBanner();
     // hide buttons div
     let buttons = document.getElementsByClassName('buttons')[0];
