@@ -52,7 +52,7 @@ const answers_no = {
 };
 
 answers_yes = {
-    "english": "Yes",
+    "english": "Ofc",
     "french": "Oui",
     "Thailand": "เย่ คืนดีกันแล้วน้า"
 }
@@ -61,8 +61,33 @@ let language = "english"; // Default language is English
 const no_button = document.getElementById('no-button');
 const yes_button = document.getElementById('yes-button');
 let i = 1;
-let size = 50;
+const BASE_YES_BUTTON_SIZE = 60;
+let size = BASE_YES_BUTTON_SIZE;
 let clicks = 0;
+
+function getButtonLabelEl(buttonEl) {
+    let labelEl = buttonEl.querySelector('p');
+    if (!labelEl) {
+        labelEl = document.createElement('p');
+        buttonEl.textContent = '';
+        buttonEl.appendChild(labelEl);
+    }
+    return labelEl;
+}
+
+function setButtonLabel(buttonEl, text) {
+    const labelEl = getButtonLabelEl(buttonEl);
+    labelEl.textContent = text;
+}
+
+function setYesButtonSize(newSizePx) {
+    size = newSizePx;
+    yes_button.style.height = `${size}px`;
+    yes_button.style.width = `${size}px`;
+
+    const fontSize = Math.max(22, Math.min(72, Math.round(size * 0.45)));
+    yes_button.style.fontSize = `${fontSize}px`;
+}
 
 no_button.addEventListener('click', () => {
     // Change banner source
@@ -70,25 +95,21 @@ no_button.addEventListener('click', () => {
     banner.src = "public/images/no.gif";
     refreshBanner();
     clicks++;
-    // increase button height and width gradually to 250px
+    // increase button height/width and scale font with it
     const sizes = [40, 50, 30, 35, 45]
     const random = Math.floor(Math.random() * sizes.length);
-    size += sizes[random]
-    yes_button.style.height = `${size}px`;
-    yes_button.style.width = `${size}px`;
+    setYesButtonSize(size + sizes[random]);
     let total = answers_no[language].length;
     // change button text
     if (i < total - 1) {
-        no_button.innerHTML = answers_no[language][i];
+        setButtonLabel(no_button, answers_no[language][i]);
         i++;
     } else if (i === total - 1) {
         alert(answers_no[language][i]);
         i = 1;
-        no_button.innerHTML = answers_no[language][0];
-        yes_button.innerHTML = answers_yes[language];
-        yes_button.style.height = "50px";
-        yes_button.style.width = "50px";
-        size = 50;
+        setButtonLabel(no_button, answers_no[language][0]);
+        setButtonLabel(yes_button, answers_yes[language]);
+        setYesButtonSize(BASE_YES_BUTTON_SIZE);
     }
 });
 
@@ -129,13 +150,13 @@ function changeLanguage() {
     }
 
     // Reset yes button text
-    yes_button.innerHTML = answers_yes[language];
+    setButtonLabel(yes_button, answers_yes[language]);
 
     // Reset button text to first in the new language
     if (clicks === 0) {
-        no_button.innerHTML = answers_no[language][0];
+        setButtonLabel(no_button, answers_no[language][0]);
     } else {
-        no_button.innerHTML = answers_no[language][clicks];
+        setButtonLabel(no_button, answers_no[language][clicks]);
     }
 
     // Update success message
@@ -148,3 +169,8 @@ function changeLanguage() {
         successMessage.textContent = "Yepppie, see you sooonnn :3";
     }
 }
+
+// Ensure labels exist and match the default language.
+setButtonLabel(yes_button, answers_yes[language]);
+setButtonLabel(no_button, answers_no[language][0]);
+setYesButtonSize(BASE_YES_BUTTON_SIZE);
