@@ -1,20 +1,19 @@
 const answers_no = {
     english: [
         "No",
-        "Are you sure?",
-        "Are you really sure??",
-        "Are you really realy sure???",
-        "Think again?",
-        "Don't believe in second chances?",
-        "Why are you being so cold?",
-        "Maybe we can talk about it?",
-        "I am not going to ask again!",
-        "Ok now this is hurting my feelings!",
-        "You are now just being mean!",
-        "Why are you doing this to me?",
-        "Please give me a chance!",
-        "I am begging you to stop!",
-        "Ok, Let's just start over.."
+        "Asmita, you sure?",
+        "What if I asked you really nicely??",
+        "What if I said there is coffee involved???",
+        "With chocoloate desserts?",
+        "How about if we go for a play too?",
+        "Okayy maybe a musical then?",
+        "But :*(",
+        "Plss Asmita!",
+        "Dil todh rahi hai yaar",
+        ":(((((",
+        "No :(",
+        "No :(",
+        "No :("
     ],
     french: [
         "Non",
@@ -107,7 +106,7 @@ yes_button.addEventListener('click', () => {
 });
 
 function refreshBanner() {
-    // Reload banner gif to force load  
+    // Reload banner gif to force load
     let banner = document.getElementById('banner');
     let src = banner.src;
     banner.src = '';
