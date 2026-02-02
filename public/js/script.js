@@ -5,7 +5,7 @@ const answers_no = {
         "What if I asked you really nicely??",
         "What if I said there is coffee involved???",
         "With chocoloate dessert?",
-        "How about if we go for a play too?",
+        "How about if we go for a theatre play too?",
         "Okayy maybe a musical then?",
         "But :*(",
         "Plss Asmita!",
