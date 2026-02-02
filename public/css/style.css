@@ -105,6 +105,10 @@ body {
     object-fit: contain;
 }
 
+.banner-gif img.banner-yes {
+    height: 420px;
+}
+
 .creator {
     text-decoration: none;
     color: #333;
@@ -128,5 +132,9 @@ body {
 
     .banner-gif img {
         height: 280px;
+    }
+
+    .banner-gif img.banner-yes {
+        height: 360px;
     }
 }

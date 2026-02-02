@@ -92,6 +92,7 @@ function setYesButtonSize(newSizePx) {
 no_button.addEventListener('click', () => {
     // Change banner source
     let banner = document.getElementById('banner');
+    banner.classList.remove('banner-yes');
     banner.src = "public/images/no.gif";
     refreshBanner();
     clicks++;
@@ -116,6 +117,7 @@ no_button.addEventListener('click', () => {
 yes_button.addEventListener('click', () => {
     // change banner gif path
     let banner = document.getElementById('banner');
+    banner.classList.add('banner-yes');
     banner.src = "public/images/yes.gif";
     refreshBanner();
     // hide buttons div
