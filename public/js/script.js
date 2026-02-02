@@ -1,11 +1,11 @@
 const answers_no = {
     english: [
         "No",
-        "Asmita, you sure?",
+        "Are you sure?",
         "What if I asked you really nicely??",
         "What if I said there is coffee involved???",
         "With chocoloate dessert?",
-        "How about if we go for a theatre play too?",
+        "How about we go to a play too?",
         "Okayy maybe a musical then?",
         "But :*(",
         "Plss Asmita!",
