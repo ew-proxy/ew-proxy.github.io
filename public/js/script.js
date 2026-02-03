@@ -7,7 +7,7 @@ const answers_no = {
         "With chocolate dessert?",
         "How about we go for a play too?",
         "Okayy maybe a musical then?",
-        "But :*(",
+        "With at least 30 minutes of movie time?",
         "Plss Asmita!",
         "Dil todh rahi hai yaar",
         ":(((((",
