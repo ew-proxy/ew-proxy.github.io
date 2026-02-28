@@ -136,7 +136,36 @@ function refreshBanner() {
     banner.src = src;
 }
 
+function createFloatingHearts(count = 24) {
+    const heartsRoot = document.getElementById('floating-hearts');
+    if (!heartsRoot) return;
+
+    const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    const effectiveCount = reducedMotion ? Math.min(8, count) : count;
+
+    for (let index = 0; index < effectiveCount; index++) {
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+
+        const x = Math.random() * 100;
+        const y = 100 + Math.random() * 40;
+        const scale = 0.4 + Math.random() * 1.2;
+        const duration = 8 + Math.random() * 10;
+        const delay = Math.random() * duration;
+
+        heart.style.setProperty('--x', x.toFixed(2));
+        heart.style.setProperty('--y', y.toFixed(2));
+        heart.style.setProperty('--s', scale.toFixed(2));
+        heart.style.setProperty('--d', `${duration.toFixed(2)}s`);
+        heart.style.setProperty('--delay', delay.toFixed(2));
+
+        heartsRoot.appendChild(heart);
+    }
+}
+
 // Ensure labels exist and match the default language.
 setButtonLabel(yes_button, answers_yes[language]);
 setButtonLabel(no_button, answers_no[language][0]);
 setYesButtonSize(BASE_YES_BUTTON_SIZE);
+
+createFloatingHearts(28);
