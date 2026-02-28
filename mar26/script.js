@@ -1,11 +1,14 @@
 const envelope = document.getElementById("envelope");
 const letter = document.getElementById("letter");
 const particlesRoot = document.getElementById("particles");
-const replay = document.getElementById("replay");
 
 function setOpen(isOpen) {
   envelope.classList.toggle("is-open", isOpen);
   letter.classList.toggle("is-visible", isOpen);
+}
+
+function getIsOpen() {
+  return envelope.classList.contains("is-open");
 }
 
 function createParticles(count = 24) {
@@ -32,18 +35,13 @@ function createParticles(count = 24) {
   }
 }
 
-envelope.addEventListener("click", () => setOpen(true));
-replay.addEventListener("click", () => {
-  setOpen(false);
-  // give the flap a moment to reset
-  window.setTimeout(() => setOpen(true), 180);
-});
+envelope.addEventListener("click", () => setOpen(!getIsOpen()));
+letter.addEventListener("click", () => setOpen(false));
 
 // Keyboard support
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") setOpen(false);
-  if (event.key === "Enter" && document.activeElement === envelope) setOpen(true);
+  if (event.key === "Enter" && document.activeElement === envelope) setOpen(!getIsOpen());
 });
 
 createParticles(28);
-
