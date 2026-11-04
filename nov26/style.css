@@ -3,3 +3,4 @@
 .hero h1 em{color:inherit}
 .beaver-doodle{position:relative;z-index:1;width:25%;aspect-ratio:1;display:grid;place-items:center;font-size:clamp(38px,8vw,72px);filter:drop-shadow(0 8px 5px #78513924)}.doodle-cake{position:absolute;font-size:.48em;right:-12%;bottom:5%}.sun{width:120px;height:120px;top:calc(50% - 60px)}.hero-art{background:#f8e9d9}@media(max-width:700px){.sun{width:105px;height:105px;top:calc(50% - 52px)}}
 .hero-teddy{position:relative;z-index:1;width:25%;height:auto;display:block;border-radius:50%;box-shadow:0 8px 20px #78513920}
+.hero-teddy{width:auto;height:auto;border-radius:0;box-shadow:none;font-size:clamp(42px,7vw,66px);line-height:1}
